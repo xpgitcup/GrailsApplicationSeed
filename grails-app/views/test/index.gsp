@@ -43,13 +43,17 @@
                 </div>
                 <div title="About" style="padding:10px">
                     <p style="font-size:14px">jQuery EasyUI framework helps you build your web pages easily.</p>
-                    <ul>
-                        <li>easyui is a collection of user-interface plugin based on jQuery.</li>
+                    <ul class="easyui-tree">
+                        <li><span>easyui is a collection of user-interface plugin based on jQuery.</span></li>
                         <li>easyui provides essential functionality for building modem, interactive, javascript applications.</li>
                         <li>using easyui you don't need to write many javascript code, you usually defines user-interface by writing some HTML markup.</li>
                         <li>complete framework for HTML5 web page.</li>
-                        <li>easyui save your time and scales while developing your products.</li>
-                        <li>easyui is very easy but powerful.</li>
+                        <li><span>????</span>
+                            <ul>
+                                <li>easyui save your time and scales while developing your products.</li>
+                                <li>easyui is very easy but powerful.</li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
                 <div title="My Documents" style="padding:10px">
@@ -57,6 +61,39 @@
                 </div>
                 <div title="Help" data-options="iconCls:'icon-help',closable:true" style="padding:10px">
                     This is the help content.
+                    <ul class="easyui-tree">
+                        <li>
+                            <span>My Documents</span>
+                            <ul>
+                                <li data-options="state:'closed'">
+                                    <span>Photos</span>
+                                    <ul>
+                                        <li>
+                                            <span>Friend</span>
+                                        </li>
+                                        <li>
+                                            <span>Wife</span>
+                                        </li>
+                                        <li>
+                                            <span>Company</span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span>Program Files</span>
+                                    <ul>
+                                        <li>Intel</li>
+                                        <li>Java</li>
+                                        <li>Microsoft Office</li>
+                                        <li>Games</li>
+                                    </ul>
+                                </li>
+                                <li>index.html</li>
+                                <li>about.html</li>
+                                <li>welcome.html</li>
+                            </ul>
+                        </li>
+                    </ul>                    
                 </div>
             </div>                
                 <!---->
