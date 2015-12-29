@@ -69,16 +69,8 @@
         </div>   
         <!--这里是主显示区-->
         <div id="mainPanel" data-options="region:'center',title:'主功能区=>${session.currentTopMenuContext}=>${session.currentMenu}（${session?.currentMenuDescription}）'" style="padding:5px;background:#eee;">
-            <g:if test="${session.user}">
-                <g:layoutBody/>
-            </g:if>
-            <g:else>
-                <div id="mainNote">
-                    请先登录${path}<p>
-                        当前${basePath}    
-                        当前的说明${currentMenuDescription}
-                </div>
-            </g:else>
+            <!--主显示区域-->
+            <g:layoutBody/>
         </div>   
         <!--页脚区域，最下边-->
         <div data-options="region:'south',split:false,border:true" style="height: 80px">
