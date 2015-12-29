@@ -24,7 +24,7 @@ environments {
         dataSource {
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
             //url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
-            url = "jdbc:mysql://localhost:3306/seed9db?zeroDateTimeBehavior=convertToNull"  
+            url = "jdbc:mysql://localhost:3306/gasdb?zeroDateTimeBehavior=convertToNull"  
             logSql = true   //是否显示Hibernate 的 SQL语句
         }
     }
@@ -32,14 +32,14 @@ environments {
         dataSource {
             dbCreate = "update"
             //url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
-            url = "jdbc:mysql://localhost:3306/seed9db?zeroDateTimeBehavior=convertToNull"  
+            url = "jdbc:mysql://localhost:3306/gasdb?zeroDateTimeBehavior=convertToNull"  
         }
     }
     production {
         dataSource {
             dbCreate = "update"
             //url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
-            url = "jdbc:mysql://localhost:3306/seed9db?zeroDateTimeBehavior=convertToNull"  
+            url = "jdbc:mysql://localhost:3306/gasdb?zeroDateTimeBehavior=convertToNull"  
             properties {
                // See http://grails.org/doc/latest/guide/conf.html#dataSource for documentation
                jmxEnabled = true
