@@ -62,6 +62,9 @@ grails.project.dependency.resolution = {
         compile ':cache:1.1.8'
         // asset-pipeline 2.0+ requires Java 7, use version 1.9.x with Java 6
         compile ":asset-pipeline:2.5.7"
+        
+        //密码处理---手工增加的
+        compile ":message-digest:1.1"
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate4:4.3.10" // or ":hibernate:3.6.10.18"
