@@ -7,7 +7,7 @@
 body {
     font-size:12px;  
     font-family:"宋体";
-    background : #a2d962 url(../images/login_0.png) repeat-x;
+    background : #a2d962 url(../images/login/login_0.png) repeat-x;
 }
 
 #main{
@@ -24,7 +24,7 @@ body {
     position : relative;
     width : 521px;
     height : 375px;
-    background : url(../images/login_bg.png) no-repeat;
+    background : url(../images/login/login_bg.png) no-repeat;
 }
 
 #main .title{
