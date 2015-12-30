@@ -25,7 +25,7 @@ environments {
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
             //url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
             url = "jdbc:mysql://localhost:3306/gasdb?zeroDateTimeBehavior=convertToNull"  
-            logSql = true   //是否显示Hibernate 的 SQL语句
+            logSql = false//true   //是否显示Hibernate 的 SQL语句
         }
     }
     test {
