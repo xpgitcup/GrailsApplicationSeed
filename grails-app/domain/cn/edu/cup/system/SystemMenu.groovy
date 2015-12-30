@@ -21,6 +21,8 @@ class SystemMenu {
     }
     
     static mapping = {
+        sort('menuOrder')
+        sort('id')
         menuItems sort: 'menuOrder', 'id'  //这是排序的标准做法 
     }
     
