@@ -31,14 +31,14 @@ INSERT INTO `system_menu` VALUES ('13', '0', 'quantityUnit/index', '物理量单
 INSERT INTO `system_menu` VALUES ('20', '1', '#', '用户配置', '用户配置自己的开始界面', '1', '0', null);
 INSERT INTO `system_menu` VALUES ('21', '0', 'systemDefaultMenu/index', '缺省菜单', '选择自己的缺省菜单', '0', '0', '20');
 
-INSERT INTO `system_menu` VALUES ('30', '1', '#', '工程基础数据', '用户配置工程基础数据', '1', '0', null);
-INSERT INTO `system_menu` VALUES ('31', '0', 'gasComponentFamily/index', '气体种类信息', '维护气体组分信息', '0', '0', '30');
-INSERT INTO `system_menu` VALUES ('32', '0', 'gasComponent/index', '气体组分信息', '维护气体组分信息', '0', '0', '30');
+INSERT INTO `system_menu` VALUES ('30', '1', '#', '气体基本信息', '气体计算相关基础数据', '1', '0', null);
+INSERT INTO `system_menu` VALUES ('31', '0', 'gasComponentFamily/index', '气体分类', '维护气体种类信息', '0', '0', '30');
+INSERT INTO `system_menu` VALUES ('32', '0', 'gasComponent/index', '组分信息', '维护气体组分信息', '0', '0', '30');
 INSERT INTO `system_menu` VALUES ('33', '0', 'gasComponentParameterFamily/index', '参数分类', '维护气体组分参数信息', '0', '0', '30');
-INSERT INTO `system_menu` VALUES ('34', '0', 'gasComponentParameter/index', '气体组分参数列表', '维护气体组分参数信息', '0', '0', '30');
-INSERT INTO `system_menu` VALUES ('35', '0', 'gasComponentParameterData/index', '各种气体组分参数', '维护气体组分参数信息', '0', '0', '30');
+INSERT INTO `system_menu` VALUES ('34', '0', 'gasComponentParameter/index', '参数列表', '维护气体组分参数信息', '0', '0', '30');
+INSERT INTO `system_menu` VALUES ('35', '0', 'gasComponentParameterData/index', '参数数据', '维护气体组分参数信息', '0', '0', '30');
 INSERT INTO `system_menu` VALUES ('36', '0', 'fluidGas/index', '气体', '维护气体信息', '0', '0', '30');
-INSERT INTO `system_menu` VALUES ('37', '0', 'componentFactor/index', '气体组分信息', '维护气体组分信息', '0', '0', '30');
+INSERT INTO `system_menu` VALUES ('37', '0', 'componentFactor/index', '气质', '维护气体组分信息', '0', '0', '30');
 INSERT INTO `system_menu` VALUES ('38', '0', 'pseudoComponent/index', '拟组分', '维护气体拟组分信息', '0', '0', '30');
 
 INSERT INTO `system_menu` VALUES ('40', '1', '#', '导入工程基础数据', '用户配置工程基础数据', '1', '0', null);
