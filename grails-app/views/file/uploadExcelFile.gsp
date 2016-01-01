@@ -23,7 +23,7 @@
             <g:render template="${templateFile}"/>
             <div class="pagination">
                 <hr>
-                <g:uploadForm controller="gasTool" action="doImportComponentNames">
+                <g:uploadForm controller="file" action="doUploadExcelFile">
                     <span>
                         请选择一个Excel文件<input type="file" name="uploadedFile" />
                     </span>
