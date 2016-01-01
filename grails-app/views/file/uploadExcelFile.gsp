@@ -14,13 +14,13 @@
     </head>
     <body>
         <div id="list-testDataA" class="content scaffold-list" role="main">
-            <h1>${message}——请确认Excel文件中数据符合以下顺序：</h1>
+            <h1>${params.message}——请确认Excel文件中数据符合以下顺序：</h1>
             <g:if test="${flash.message}">
                 <div class="message" role="status">
                     ${flash.message}
                 </div>
             </g:if>
-            <g:render template="${templateFile}"/>
+            <g:render template="${params.templateFile}"/>
             <div class="pagination">
                 <hr>
                 <g:uploadForm controller="file" action="doUploadExcelFile">
