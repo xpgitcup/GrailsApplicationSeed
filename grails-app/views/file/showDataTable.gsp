@@ -11,8 +11,8 @@
         <div class="nav" role="navigation">
             <ul>
                 <li><g:link class="home">请确认文件[${filename}]内容</g:link></li>
-                <li><g:link class="home" action="${nextAction}" params='[filename: "${filename}"]' >动态确认</g:link></li>
-                <li><g:link class="home" action="importComponentNames">重选</g:link></li>
+                <li><g:link class="home" controller="${nextStep.processController}" action="${nextStep.processAction}" params='[filename: "${filename}"]' >确认-下一步-></g:link></li>
+                <li><a href="javascript:history.go(-1);">重选</a></li>
                 <g:if test="${data.size>0}">
                     <li class="info">
                         数据行数：${data.size},列数:${data[0].size}

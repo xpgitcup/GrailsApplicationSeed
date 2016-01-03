@@ -24,6 +24,7 @@
             <div class="pagination">
                 <hr>
                 <g:uploadForm controller="file" action="doUploadExcelFile">
+                    <g:hiddenField name="nextStep" value="${nextStep}" />
                     <span>
                         请选择一个Excel文件<input type="file" name="uploadedFile" />
                     </span>

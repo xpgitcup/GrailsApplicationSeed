@@ -10,15 +10,16 @@ class FileController {
      * */
     def doUploadExcelFile() {
         println "import ${params}"
+        def nextStep = Map.parse(params.nextStep)
         params.destDir = "temp"
         def destFile = commonService.upload(params)
         println "${destFile}"
         params.filename = destFile.path
         def data = excelService.importExcelFile(params)
-        render(view: "showDataTable", controller: "gasTool", 
+        render(view: "showDataTable",  
             model:[data: data, 
                 filename: destFile.path, 
-                nextAction: 'doImportComponentParameterDataFromArray'])
+                nextStep: nextStep])
         
     }
     
