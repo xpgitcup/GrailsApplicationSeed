@@ -1,5 +1,7 @@
 package cn.edu.cup.common
 
+import cn.edu.cup.system.SystemProcedure
+
 class FileController {
     
     def commonService
@@ -9,8 +11,12 @@ class FileController {
      * 具体执行上传，然后显示
      * */
     def doUploadExcelFile() {
-        println "import ${params}"
-        def nextStep = Map.parse(params.nextStep)
+        def id = params.stepid
+        def procedure = SystemProcedure.get(id)
+        println "doUploadExcelFile ${procedure}"
+        
+        def nextStep = procedure.next
+        
         params.destDir = "temp"
         def destFile = commonService.upload(params)
         println "${destFile}"

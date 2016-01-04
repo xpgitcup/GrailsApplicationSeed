@@ -22,6 +22,7 @@ INSERT INTO `system_menu` VALUES ('3', '1', 'systemUser/index', '用户管理', 
 INSERT INTO `system_menu` VALUES ('4', '1', 'systemMenu/index', '菜单管理', '增加、删除、编辑菜单', '0', '10', '1');
 INSERT INTO `system_menu` VALUES ('5', '1', 'systemLog/index', '日志管理', '日志管理', '0', '10', '1');
 INSERT INTO `system_menu` VALUES ('6', '0', 'systemMenuTree/index', '树形菜单', '直观形象地维护菜单', '0', '10', '1');
+INSERT INTO `system_menu` VALUES ('7', '0', 'systemProcedure/index', '过程控制', '过程控制维护', '0', '10', '1');
 
 INSERT INTO `system_menu` VALUES ('10', '1', '#', '工程单位配置', '工程单位系统', '1', '0', null);
 INSERT INTO `system_menu` VALUES ('11', '0', 'physicalQuantity/index', '物理量', '维护物理量信息', '0', '0', '10');
