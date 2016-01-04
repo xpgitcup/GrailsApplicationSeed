@@ -73,7 +73,7 @@ function doImport() {
 
     $.ajax({
         type: 'POST',
-        url: 'gasTool/createComponentAndSave',
+        url: 'fluidGasTools/createComponentAndSave',
         data: {names: dd},
         success: function (data, textStatus) {
             $("#realTimeDiv").html(data);
