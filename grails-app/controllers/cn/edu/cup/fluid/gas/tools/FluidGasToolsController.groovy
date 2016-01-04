@@ -1,6 +1,7 @@
 package cn.edu.cup.fluid.gas.tools
 
 import cn.edu.cup.system.SystemProcedure
+import grails.transaction.Transactional
 
 class FluidGasToolsController {
     
@@ -8,7 +9,27 @@ class FluidGasToolsController {
     def excelService
 
     /*
-     * 
+     * 创建组分对象，存盘
+     * */
+    @Transactional
+    def createComponentAndSave(params) {
+        def result
+        def d = params.list('names[]')  //这是获取数据的关键。
+        println "d=${d}"
+        if (d) {
+            result = checkComponentByDescription(d)
+        } else {
+            result = null
+        }
+        if (request.xhr) {
+            render(template: "createComponentResult", model:[result: result])
+        } else {
+            render(template: "createComponentError", model:[result: result])
+        }
+    }
+    
+    /*
+     * 将上传的文件先试一下，然后分两个步骤：导入一行、
      * */
     def importGascomponentNames() {
         def id = params.stepid
