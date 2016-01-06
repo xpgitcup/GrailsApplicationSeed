@@ -1,7 +1,5 @@
 package cn.edu.cup.fluid.gas
 
-
-
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
