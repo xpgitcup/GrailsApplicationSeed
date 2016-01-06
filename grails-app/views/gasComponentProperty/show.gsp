@@ -32,11 +32,20 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${gasComponentPropertyInstance?.unit}">
+				<g:if test="${gasComponentPropertyInstance?.description}">
 				<li class="fieldcontain">
-					<span id="unit-label" class="property-label"><g:message code="gasComponentProperty.unit.label" default="Unit" /></span>
+					<span id="description-label" class="property-label"><g:message code="gasComponentProperty.description.label" default="Description" /></span>
 					
-						<span class="property-value" aria-labelledby="unit-label"><g:fieldValue bean="${gasComponentPropertyInstance}" field="unit"/></span>
+						<span class="property-value" aria-labelledby="description-label"><g:fieldValue bean="${gasComponentPropertyInstance}" field="description"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${gasComponentPropertyInstance?.alias}">
+				<li class="fieldcontain">
+					<span id="alias-label" class="property-label"><g:message code="gasComponentProperty.alias.label" default="Alias" /></span>
+					
+						<span class="property-value" aria-labelledby="alias-label"><g:fieldValue bean="${gasComponentPropertyInstance}" field="alias"/></span>
 					
 				</li>
 				</g:if>
