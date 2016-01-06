@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : sample-localhost
-Source Server Version : 50620
+Source Server         : sample
+Source Server Version : 50626
 Source Host           : localhost:3306
 Source Database       : gasdb
 
 Target Server Type    : MYSQL
-Target Server Version : 50620
+Target Server Version : 50626
 File Encoding         : 65001
 
-Date: 2016-01-04 17:16:09
+Date: 2016-01-06 21:22:22
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,10 +34,11 @@ CREATE TABLE `system_procedure` (
   KEY `FK_qoihmm7f3k6inga0kwdx4631r` (`previous_id`),
   CONSTRAINT `FK_hb3wr8lfurf3r0y3qt2ku7ali` FOREIGN KEY (`next_id`) REFERENCES `system_procedure` (`id`),
   CONSTRAINT `FK_qoihmm7f3k6inga0kwdx4631r` FOREIGN KEY (`previous_id`) REFERENCES `system_procedure` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of system_procedure
 -- ----------------------------
 INSERT INTO `system_procedure` VALUES ('1', '1', 'prepareImportGasComponentNames', 'fluidGasTools', '1.导入气体组分名称', '2', null, 'gasComponentNames', null);
 INSERT INTO `system_procedure` VALUES ('2', '0', 'importGascomponentNames', 'fluidGasTools', '1.1执行导入', null, '1', null, null);
+INSERT INTO `system_procedure` VALUES ('3', '0', 'prepareImportPropertyNames', 'propertyTools', '2.物性参数名称', null, null, 'propertyNames', null);
