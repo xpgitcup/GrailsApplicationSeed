@@ -20,3 +20,21 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: propertyFamilyInstance, field: 'property', 'error')} ">
+	<label for="property">
+		<g:message code="propertyFamily.property.label" default="Property" />
+		
+	</label>
+	
+<ul class="one-to-many">
+<g:each in="${propertyFamilyInstance?.property?}" var="p">
+    <li><g:link controller="gasComponentProperty" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="gasComponentProperty" action="create" params="['propertyFamily.id': propertyFamilyInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'gasComponentProperty.label', default: 'GasComponentProperty')])}</g:link>
+</li>
+</ul>
+
+
+</div>
+

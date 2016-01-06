@@ -41,6 +41,17 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${propertyFamilyInstance?.property}">
+				<li class="fieldcontain">
+					<span id="property-label" class="property-label"><g:message code="propertyFamily.property.label" default="Property" /></span>
+					
+						<g:each in="${propertyFamilyInstance.property}" var="p">
+						<span class="property-value" aria-labelledby="property-label"><g:link controller="gasComponentProperty" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form url="[resource:propertyFamilyInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
