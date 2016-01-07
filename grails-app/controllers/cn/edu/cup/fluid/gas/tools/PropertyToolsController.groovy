@@ -15,18 +15,23 @@ class PropertyToolsController {
      * */
     @Transactional
     def createComponentPropertyAndSave(params) {
-        def result
+        def result = [:]
         def d = params.list('names[]')  //这是获取数据的关键。
         println "d=${d}"
         def n = d.size()
         if (n<4) {
             result.message = '信息不全，数据列数不足4列。'
         } else {
-            def e = ComponentProperty.findByName(d[0])
+            println "开始检查。。。。${d[0]}"
+            def na = d[0].trim()
+            def e = GasComponentProperty.findByName(na)
             if (e) {
                 result.message = '重复数据--${e}。'
+                println "重复数据--${e}。"
             } else {
-                def f = PropertyFamily.findByAlias(d[3])
+                def fn = d[3].trim()
+                def f = PropertyFamily.findByAlias(fn)
+                println "先检查类型： ${f}"
                 if (!f) {
                     result.message = '非法的类型--${d[3}。'
                 } else {
@@ -37,15 +42,15 @@ class PropertyToolsController {
                         propertyFamily: f
                     )
                     np.save(flush: true)
-                    result.message = '创建属性--${np}。'
+                    result.message = "创建属性--${np}。"
                 }
             }
         }
         //
         if (request.xhr) {
-            render(template: "createPropertyResult", model:[result: result])
+            render(template: "createPropertyNameResult", model:[result: result])
         } else {
-            render(template: "createPropertyError", model:[result: result])
+            render(template: "createPropertyNameError", model:[result: result])
         }
     }
     

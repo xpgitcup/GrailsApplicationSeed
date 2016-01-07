@@ -14,7 +14,7 @@ function doImportB() {
             item.remove();
         }
     });
-    location.href = "gasComnponentProperty/index";
+    location.href = "gasComponentProperty/index";
 }
 
 function doImportA() {

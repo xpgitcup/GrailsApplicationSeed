@@ -33,21 +33,8 @@
         <div class="message" role="status">${flash.message}</div>
     </g:if>
     <div id="realTimeDiv" class="message" role="status">
-        当前组分：${found}
+        当前：${result?.message}
     </div>
-    <g:if test="${dataHeads}">
-        <table>
-            <tbody>
-                <g:each in="${dataHeads}" status="i" var="item">
-                    <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-                        <td>${item.key}</td>
-                        <td>${item.value}</td>
-                    </tr>
-                </g:each>
-            </tbody>
-        </table>
-        <hr>
-    </g:if>
     <table id="names">
         <tbody>
             <g:each in="${data}" status="i" var="item">

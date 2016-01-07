@@ -15,6 +15,7 @@ class GasComponentProperty {
     }
     
     static mapping = {
+        sort('id')
         sort('propertyFamily')
         sort('name')
     }
