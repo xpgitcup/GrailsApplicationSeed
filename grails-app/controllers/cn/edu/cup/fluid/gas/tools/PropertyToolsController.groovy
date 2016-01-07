@@ -1,12 +1,53 @@
 package cn.edu.cup.fluid.gas.tools
 
 import cn.edu.cup.system.SystemProcedure
+import cn.edu.cup.fluid.gas.PropertyFamily
+import cn.edu.cup.fluid.gas.GasComponentProperty
 import grails.transaction.Transactional
 
 class PropertyToolsController {
 
     def commonService
     def excelService
+    
+    /*
+     * 创建组分对象，存盘
+     * */
+    @Transactional
+    def createComponentPropertyAndSave(params) {
+        def result
+        def d = params.list('names[]')  //这是获取数据的关键。
+        println "d=${d}"
+        def n = d.size()
+        if (n<4) {
+            result.message = '信息不全，数据列数不足4列。'
+        } else {
+            def e = ComponentProperty.findByName(d[0])
+            if (e) {
+                result.message = '重复数据--${e}。'
+            } else {
+                def f = PropertyFamily.findByAlias(d[3])
+                if (!f) {
+                    result.message = '非法的类型--${d[3}。'
+                } else {
+                    def np = new GasComponentProperty(
+                        name: d[0],
+                        description: d[1],
+                        alias: d[2],
+                        propertyFamily: f
+                    )
+                    np.save(flush: true)
+                    result.message = '创建属性--${np}。'
+                }
+            }
+        }
+        //
+        if (request.xhr) {
+            render(template: "createPropertyResult", model:[result: result])
+        } else {
+            render(template: "createPropertyError", model:[result: result])
+        }
+    }
     
     /*
      * 将上传的文件先试一下，然后分两个步骤：导入一行、
