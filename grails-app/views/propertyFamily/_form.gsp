@@ -11,6 +11,15 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: propertyFamilyInstance, field: 'alias', 'error')} required">
+	<label for="alias">
+		<g:message code="propertyFamily.alias.label" default="Alias" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="alias" required="" value="${propertyFamilyInstance?.alias}"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: propertyFamilyInstance, field: 'description', 'error')} ">
 	<label for="description">
 		<g:message code="propertyFamily.description.label" default="Description" />

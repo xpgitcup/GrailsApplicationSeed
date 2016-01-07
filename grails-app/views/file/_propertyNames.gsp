@@ -17,6 +17,9 @@
             <td>
                 别名
             </td>
+            <td>
+                类型
+            </td>
         </tr>
     </tbody>
 </table>

@@ -32,6 +32,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${propertyFamilyInstance?.alias}">
+				<li class="fieldcontain">
+					<span id="alias-label" class="property-label"><g:message code="propertyFamily.alias.label" default="Alias" /></span>
+					
+						<span class="property-value" aria-labelledby="alias-label"><g:fieldValue bean="${propertyFamilyInstance}" field="alias"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${propertyFamilyInstance?.description}">
 				<li class="fieldcontain">
 					<span id="description-label" class="property-label"><g:message code="propertyFamily.description.label" default="Description" /></span>
