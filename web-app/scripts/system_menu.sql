@@ -46,7 +46,7 @@ INSERT INTO `system_menu` VALUES ('39', '0', 'pseudoComponent/index', '拟组分
 INSERT INTO `system_menu` VALUES ('40', '1', '#', '导入工程基础数据', '用户配置工程基础数据', '1', '0', null);
 INSERT INTO `system_menu` VALUES ('41', '0', 'fluidGasTools/prepareImportGasComponentNames', '组分名称', '维护气体组分参数信息', '0', '0', '40');
 INSERT INTO `system_menu` VALUES ('42', '0', 'propertyTools/prepareImportPropertyNames', '参数名称', '维护气体组分参数信息', '0', '0', '40');
-INSERT INTO `system_menu` VALUES ('43', '0', 'gasTool/importComponentParameterData', '具体参数数据', '维护气体组分参数信息', '0', '0', '40');
+INSERT INTO `system_menu` VALUES ('43', '0', 'propertyDataTools/prepareImportPropertyDataA', '简单物性', '维护气体组分参数信息', '0', '0', '40');
 INSERT INTO `system_menu` VALUES ('44', '0', 'gasTool/componentNames', '组分名称A', '维护气体组分参数信息', '0', '0', '40');
 
 INSERT INTO `system_menu` VALUES ('50', '1', '#', '气体信息', '维护气体信息', '1', '0', null);
