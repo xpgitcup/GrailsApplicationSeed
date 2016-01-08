@@ -5,7 +5,7 @@
         <meta name="layout" content="main">
         <g:set var="entityName" value="${message(code: 'testDataA.label', default: 'TestDataA')}" />
         <title><g:message code="default.list.label" args="[entityName]" /></title>
-    <asset:javascript src="user/fluid/gas/tools/importPropertyNames.js"/> 
+    <asset:javascript src="user/fluid/gas/tools/importPropertyDataA.js"/> 
 </head>
 <body>
     <a href="#list-testDataA" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -35,6 +35,20 @@
     <div id="realTimeDiv" class="message" role="status">
         当前：${result?.message}
     </div>
+    <g:if test="${dataHeads}">
+        <table>
+            <tbody>
+                <g:each in="${dataHeads}" status="i" var="item">
+                    <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+                        <td>${item.key}</td>
+                        <td>${item.value}</td>
+                    </tr>
+                </g:each>
+            </tbody>
+        </table>
+        <hr>
+    </g:if>
+    <hr>    
     <table id="names">
         <tbody>
             <g:each in="${data}" status="i" var="item">

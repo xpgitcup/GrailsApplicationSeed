@@ -5,13 +5,15 @@ class GasComponentProperty {
     String name
     String description
     String alias
+    String unit
 
     static belongsTo = [propertyFamily: PropertyFamily]
     
     static constraints = {
-        name()
+        name(uniqued: true)
         description(nullable: true)
-        alias(nullable: true)
+        alias(uniqued: true)
+        unit(nullable: true)
     }
     
     static mapping = {
@@ -23,4 +25,12 @@ class GasComponentProperty {
     String toString() {
         return "${name}"
     }
+    
+    GasComponentProperty checkByAlias(aalias) {
+        def q = createCriteria()
+        def c = q.list() {
+            like(aalias, )
+        }
+    }
+    
 }
