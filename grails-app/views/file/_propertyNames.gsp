@@ -20,6 +20,9 @@
             <td>
                 类型
             </td>
+            <td>
+                单位
+            </td>
         </tr>
     </tbody>
 </table>

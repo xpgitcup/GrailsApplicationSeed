@@ -30,6 +30,8 @@
                                         
                                         <g:sortableColumn property="alias" title="${message(code: 'gasComponentProperty.alias.label', default: 'Alias')}" />
                                         
+                                        <g:sortableColumn property="unit" title="${message(code: 'gasComponentProperty.unit.label', default: 'Unit')}" />
+                                        
                                     <th><g:message code="gasComponentProperty.propertyFamily.label" default="Property Family" /></th>
                                         
                                 </tr>
@@ -43,6 +45,8 @@
                                         <td>${fieldValue(bean: gasComponentPropertyInstance, field: "description")}</td>
                                         
                                         <td>${fieldValue(bean: gasComponentPropertyInstance, field: "alias")}</td>
+                                        
+                                        <td>${fieldValue(bean: gasComponentPropertyInstance, field: "unit")}</td>
                                         
                                         <td>${fieldValue(bean: gasComponentPropertyInstance, field: "propertyFamily")}</td>
                                         

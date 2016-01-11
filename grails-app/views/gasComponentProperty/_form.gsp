@@ -20,12 +20,21 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: gasComponentPropertyInstance, field: 'alias', 'error')} ">
+<div class="fieldcontain ${hasErrors(bean: gasComponentPropertyInstance, field: 'alias', 'error')} required">
 	<label for="alias">
 		<g:message code="gasComponentProperty.alias.label" default="Alias" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="alias" required="" value="${gasComponentPropertyInstance?.alias}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: gasComponentPropertyInstance, field: 'unit', 'error')} ">
+	<label for="unit">
+		<g:message code="gasComponentProperty.unit.label" default="Unit" />
 		
 	</label>
-	<g:textField name="alias" value="${gasComponentPropertyInstance?.alias}"/>
+	<g:textField name="unit" value="${gasComponentPropertyInstance?.unit}"/>
 
 </div>
 

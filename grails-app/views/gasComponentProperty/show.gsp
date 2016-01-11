@@ -50,6 +50,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${gasComponentPropertyInstance?.unit}">
+				<li class="fieldcontain">
+					<span id="unit-label" class="property-label"><g:message code="gasComponentProperty.unit.label" default="Unit" /></span>
+					
+						<span class="property-value" aria-labelledby="unit-label"><g:fieldValue bean="${gasComponentPropertyInstance}" field="unit"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${gasComponentPropertyInstance?.propertyFamily}">
 				<li class="fieldcontain">
 					<span id="propertyFamily-label" class="property-label"><g:message code="gasComponentProperty.propertyFamily.label" default="Property Family" /></span>
