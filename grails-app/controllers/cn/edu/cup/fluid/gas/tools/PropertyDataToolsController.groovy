@@ -67,7 +67,8 @@ class PropertyDataToolsController {
         def h = data[0]
         h.eachWithIndex() {e, i->
             if (i>0) {
-                def p = GasComponentProperty.findByAlias(e)
+                println "? ${e}"
+                def p = GasComponentProperty.checkByAlias(e)
                 if (p) {
                     heads.put(i, p)
                 }
