@@ -73,7 +73,7 @@ class PropertyDataToolsController {
                 }
             }
         }
-        
+        println "---${heads}"
         model:[data: data, procedure: procedure, dataHeads: heads]
     }
     

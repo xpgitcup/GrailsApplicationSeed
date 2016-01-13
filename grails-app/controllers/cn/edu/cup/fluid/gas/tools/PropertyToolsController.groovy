@@ -39,6 +39,7 @@ class PropertyToolsController {
                         name: d[0],
                         description: d[1],
                         alias: d[2],
+                        unit: d[4],
                         propertyFamily: f
                     )
                     np.save(flush: true)
