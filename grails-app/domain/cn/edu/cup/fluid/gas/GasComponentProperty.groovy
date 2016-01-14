@@ -29,8 +29,10 @@ class GasComponentProperty {
     GasComponentProperty checkByAlias(aalias) {
         def q = createCriteria()
         def c = q.list() {
-            like(aalias, )
+            like("alias", aalias)
         }
+        def p = c[0]
+        return p
     }
     
 }
