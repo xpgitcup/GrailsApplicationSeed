@@ -35,18 +35,24 @@
     <div id="realTimeDiv" class="message" role="status">
         当前：${result?.message}
     </div>
+    <hr>
     <g:if test="${dataHeads}">
         <table>
             <tbody>
-                <g:each in="${dataHeads}" status="i" var="item">
-                    <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-                        <td>${item.key}</td>
-                        <td>${item.value}</td>
-                    </tr>
-                </g:each>
+                <tr class="even">
+                    <td>组分</td>
+                    <g:each in="${dataHeads}" status="i" var="item">
+                        <td>${item.key}-${item.value}</td>
+                    </g:each>
+                </tr>
+                <tr class="odd" id="propertyId">
+                    <td>组分</td>
+                    <g:each in="${dataHeads}" status="i" var="item">
+                        <td>${item.value.id}</td>
+                    </g:each>
+                </tr>
             </tbody>
         </table>
-        <hr>
     </g:if>
     <hr>    
     <table id="names">
