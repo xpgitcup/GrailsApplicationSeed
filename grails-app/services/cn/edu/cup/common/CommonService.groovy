@@ -2,9 +2,31 @@ package cn.edu.cup.common
 
 import grails.transaction.Transactional
 import groovy.xml.MarkupBuilder
+import org.codehaus.groovy.grails.web.util.WebUtils
+import org.springframework.web.context.request.RequestContextHolder
 
 @Transactional
 class CommonService {
+
+    //Getting the Request object
+    def getRequest(){
+        def webUtils = WebUtils.retrieveGrailsWebRequest()
+        webUtils.getCurrentRequest()
+    }
+    //Getting the Response object
+    def getResponse(){
+        def webUtils = WebUtils.retrieveGrailsWebRequest()
+        webUtils.getCurrentResponse()
+    }
+    //Getting the ServletContext object
+    def getServletContext(){
+        def webUtils = WebUtils.retrieveGrailsWebRequest()
+        webUtils.getServletContext()
+    }
+    //Getting the Session object
+    def getSession(){
+        RequestContextHolder.currentRequestAttributes().getSession()
+    }    
     
     /*2015.03.30
      * 导入
@@ -126,6 +148,7 @@ class CommonService {
             def fName = sf.getName()
             // 处理中文乱码
             def name = URLEncoder.encode(fName, "UTF-8");            
+            def response = getResponse()
             response.setHeader("Content-disposition", "attachment; filename=" + name) 
             response.contentType = "application/x-rarx-rar-compressed"
             //response.contentType = ""
@@ -165,12 +188,12 @@ class CommonService {
         println "processOffset ${params}"
         /*
         if (!params?.offset) {
-            //
-            println "查询上次的偏移量..."
-            params.offset = session.getValue(key)
+        //
+        println "查询上次的偏移量..."
+        params.offset = session.getValue(key)
         } else {
-            //
-            session.putValue(key, params.offset)
+        //
+        session.putValue(key, params.offset)
         }*/
         if (params.containsKey('offset')) {
             println "主动设置偏移量..."

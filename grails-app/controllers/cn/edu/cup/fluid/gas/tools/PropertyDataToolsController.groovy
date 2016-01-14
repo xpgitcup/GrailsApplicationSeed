@@ -10,6 +10,29 @@ class PropertyDataToolsController {
     def excelService
     
     /*
+     * 下载
+     * */
+    def download(params) {
+        commonService.download(params)
+    }
+    
+    /*
+     * 准备模板供用户下载___全部属性的
+     * */
+    def prepareImportTemplate() {
+        def heads = []
+        def row = ['组分']
+        def ps = GasComponentProperty.list()
+        ps.each {e->
+            row.add(e.alias)
+        }
+        heads.add(row)
+        def tn = "temp/propertyTemplate.xls"
+        excelService.exportExcelFile(tn, heads)
+        model:[template: tn]
+    }
+    
+    /*
      * 创建组分对象，存盘
      * */
     @Transactional
@@ -68,7 +91,7 @@ class PropertyDataToolsController {
         h.eachWithIndex() {e, i->
             if (i>0) {
                 println "? ${e}"
-                def p = GasComponentProperty.checkByAlias(e)
+                def p = GasComponentProperty.findByAlias(e)
                 if (p) {
                     heads.put(i, p)
                 }
