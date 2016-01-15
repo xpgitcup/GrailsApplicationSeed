@@ -1,6 +1,8 @@
 package cn.edu.cup.fluid.gas.tools
 
+import cn.edu.cup.fluid.gas.GasComponent
 import cn.edu.cup.fluid.gas.GasComponentProperty
+import cn.edu.cup.fluid.gas.GasComponentPropertyValue
 import cn.edu.cup.system.SystemProcedure
 import grails.transaction.Transactional
 
@@ -54,21 +56,34 @@ class PropertyDataToolsController {
         def d = params.list('names[]')  //这是获取数据的关键。
         println "d=${d}"
         def n = d.size()
-        if (n<=mn) {
-            result.message = '信息不全，数据列数不足4列。'
+        if (n<mn) {
+            result.message = '信息不全，数据列数不足。'
+            println "信息不全，数据列数不足。"
         } else {
             def gasName = d[0]
+            println "${gasName}"
             def gas = GasComponent.findByAlias(gasName)
             println "${gas}"
             if (gas) {
-                
+                d.eachWithIndex{e, i->
+                    if (i>0) {
+                        println "${e}, ${i}, ${pps[i]}"
+                        def pd = new GasComponentPropertyValue(
+                            value: e,
+                            gasComponentProperty: pps[i],
+                            gasComponent: gas
+                        )
+                        pd.save(flush: true)
+                        println "属性：${pd}"
+                    }
+                }
             }
         }
         //
         if (request.xhr) {
-            render(template: "createPropertyNameResult", model:[result: result])
+            render(template: "createPropertyDataResult", model:[result: result])
         } else {
-            render(template: "createPropertyNameError", model:[result: result])
+            render(template: "createPropertyDataError", model:[result: result])
         }
     }
     
