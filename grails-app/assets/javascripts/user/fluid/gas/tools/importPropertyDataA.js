@@ -27,28 +27,18 @@ function doImportB() {
 function doImportA() {
     console.info("row = " + row);
     console.info("property = " + propertyIds);
+    var ps = processArray(propertyIds[1]);
     row.each(function (index, item) {
         if (index === 1) {
             console.info(item);
-            var dd = processArray(propertyIds[1], item);
-            processRow(dd);
+            var dd = processArray(item);
+            processRow(dd, ps);
             item.remove();
         }
     });
 }
 
-function processArray(prow, rowdata) {
-    console.info("属性行:" + propertyIds);
-    var ps = prow.cells;
-    console.info("属性:" + ps);
-    var m = ps.length;
-    var pps = new Array();
-    var j;
-    for (j = 0; j < m; j++) {
-        pps[j] = ps[j].innerText;
-    }
-    console.info("属性--:" + pps);
-    //--------------------------------------------------------------------------
+function processArray(rowdata) {
     console.info("行:" + rowdata);
     var data = rowdata.cells;
     console.info("cells:" + data);
@@ -62,11 +52,11 @@ function processArray(prow, rowdata) {
     return dd;
 }
 
-function processRow(dd) {
+function processRow(dd, ps) {
     $.ajax({
         type: 'POST',
         url: 'propertyDataTools/createComponentPropertyDataAndSave',
-        data: {names: dd},
+        data: {names: dd, properties: ps},
         success: function (data, textStatus) {
             $("#realTimeDiv").html(data);
         },

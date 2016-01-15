@@ -38,6 +38,13 @@ class PropertyDataToolsController {
     @Transactional
     def createComponentPropertyDataAndSave(params) {
         def result = [:]
+        //----------------------------------------------------------------------
+        //属性数据信息
+        def ps = params.list('properties[]')  //这是获取数据的关键。
+        println "ps=${ps}"
+        def mn = ps.size()
+        //----------------------------------------------------------------------
+        //数据信息
         def d = params.list('names[]')  //这是获取数据的关键。
         println "d=${d}"
         def n = d.size()
