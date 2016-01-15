@@ -43,36 +43,25 @@ class PropertyDataToolsController {
         def ps = params.list('properties[]')  //这是获取数据的关键。
         println "ps=${ps}"
         def mn = ps.size()
+        def pps = [null]
+        ps.eachWithIndex {e, i->
+            if(i>0) {
+                pps[i] = GasComponentProperty.get(e)
+            }
+        }
         //----------------------------------------------------------------------
         //数据信息
         def d = params.list('names[]')  //这是获取数据的关键。
         println "d=${d}"
         def n = d.size()
-        if (n<2) {
+        if (n<=mn) {
             result.message = '信息不全，数据列数不足4列。'
         } else {
-            println "开始检查。。。。${d[0]}"
-            def na = d[0].trim()
-            def e = GasComponentProperty.findByName(na)
-            if (e) {
-                result.message = '重复数据--${e}。'
-                println "重复数据--${e}。"
-            } else {
-                def fn = d[3].trim()
-                def f = PropertyFamily.findByAlias(fn)
-                println "先检查类型： ${f}"
-                if (!f) {
-                    result.message = '非法的类型--${d[3}。'
-                } else {
-                    def np = new GasComponentProperty(
-                        name: d[0],
-                        description: d[1],
-                        alias: d[2],
-                        propertyFamily: f
-                    )
-                    np.save(flush: true)
-                    result.message = "创建属性--${np}。"
-                }
+            def gasName = d[0]
+            def gas = GasComponent.findByAlias(gasName)
+            println "${gas}"
+            if (gas) {
+                
             }
         }
         //
