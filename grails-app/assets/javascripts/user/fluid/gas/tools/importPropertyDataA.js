@@ -9,7 +9,7 @@ var propertyIds;
 $(function() {
     row = $("#names tr");
     propertyIds = $("#propertyId tr");
-    
+    console.info("-----" + row);
 });
 
 function doImportB() {
@@ -30,22 +30,22 @@ function doImportA() {
     row.each(function (index, item) {
         if (index === 1) {
             console.info(item);
-            var dd = processArray(propertyIds, item);
+            var dd = processArray(propertyIds[1], item);
             processRow(dd);
             item.remove();
         }
     });
 }
 
-function processArray(propertyIds, rowdata) {
+function processArray(prow, rowdata) {
     console.info("属性行:" + propertyIds);
-    var ps = propertyIds.cells;
+    var ps = prow.cells;
     console.info("属性:" + ps);
     var m = ps.length;
     var pps = new Array();
     var j;
     for (j = 0; j < m; j++) {
-        pps[i] = ps[i].innerText;
+        pps[j] = ps[j].innerText;
     }
     console.info("属性--:" + pps);
     //--------------------------------------------------------------------------
