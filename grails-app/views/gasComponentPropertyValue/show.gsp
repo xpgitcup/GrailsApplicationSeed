@@ -23,11 +23,11 @@
 			</g:if>
 			<ol class="property-list gasComponentPropertyValue">
 			
-				<g:if test="${gasComponentPropertyValueInstance?.value}">
+				<g:if test="${gasComponentPropertyValueInstance?.gasComponentProperty}">
 				<li class="fieldcontain">
-					<span id="value-label" class="property-label"><g:message code="gasComponentPropertyValue.value.label" default="Value" /></span>
+					<span id="gasComponentProperty-label" class="property-label"><g:message code="gasComponentPropertyValue.gasComponentProperty.label" default="Gas Component Property" /></span>
 					
-						<span class="property-value" aria-labelledby="value-label"><g:fieldValue bean="${gasComponentPropertyValueInstance}" field="value"/></span>
+						<span class="property-value" aria-labelledby="gasComponentProperty-label"><g:link controller="gasComponentProperty" action="show" id="${gasComponentPropertyValueInstance?.gasComponentProperty?.id}">${gasComponentPropertyValueInstance?.gasComponentProperty?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -41,11 +41,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${gasComponentPropertyValueInstance?.gasComponentProperty}">
+				<g:if test="${gasComponentPropertyValueInstance?.value}">
 				<li class="fieldcontain">
-					<span id="gasComponentProperty-label" class="property-label"><g:message code="gasComponentPropertyValue.gasComponentProperty.label" default="Gas Component Property" /></span>
+					<span id="value-label" class="property-label"><g:message code="gasComponentPropertyValue.value.label" default="Value" /></span>
 					
-						<span class="property-value" aria-labelledby="gasComponentProperty-label"><g:link controller="gasComponentProperty" action="show" id="${gasComponentPropertyValueInstance?.gasComponentProperty?.id}">${gasComponentPropertyValueInstance?.gasComponentProperty?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="value-label"><g:fieldValue bean="${gasComponentPropertyValueInstance}" field="value"/></span>
 					
 				</li>
 				</g:if>

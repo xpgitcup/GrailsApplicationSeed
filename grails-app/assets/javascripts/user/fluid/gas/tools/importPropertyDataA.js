@@ -7,12 +7,12 @@ var row;
 var propertyIds;
 
 $(function() {
-    row = $("#names tr");
     propertyIds = $("#propertyId tr");
     console.info("-----" + row);
 });
 
 function doImportB() {
+    row = $("#names tr");
     row.each(function (index, item) {
         if (index > 0) {
             console.info(item);
@@ -25,6 +25,7 @@ function doImportB() {
 }
 
 function doImportA() {
+    row = $("#names tr");
     console.info("row = " + row);
     console.info("property = " + propertyIds);
     var ps = processArray(propertyIds[1]);

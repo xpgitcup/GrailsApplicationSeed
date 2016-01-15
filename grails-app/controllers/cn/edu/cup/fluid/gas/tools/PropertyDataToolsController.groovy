@@ -65,15 +65,23 @@ class PropertyDataToolsController {
             def gas = GasComponent.findByAlias(gasName)
             println "${gas}"
             if (gas) {
+                result.gas = gas
                 d.eachWithIndex{e, i->
                     if (i>0) {
                         println "${e}, ${i}, ${pps[i]}"
-                        def pd = new GasComponentPropertyValue(
-                            value: e,
-                            gasComponentProperty: pps[i],
-                            gasComponent: gas
-                        )
-                        pd.save(flush: true)
+                        result.message += "${e}, ${i}, ${pps[i]}"
+                        def pd = GasComponentPropertyValue.findByGasComponentAndGasComponentProperty(gas, pps[i])
+                        if (pd) {
+                            result.result = "有了！"
+                        } else {
+                            result.result = "新增！"
+                            pd = new GasComponentPropertyValue(
+                                value: e,
+                                gasComponentProperty: pps[i],
+                                gasComponent: gas
+                            )
+                            pd.save(flush: true)
+                        }
                         println "属性：${pd}"
                     }
                 }

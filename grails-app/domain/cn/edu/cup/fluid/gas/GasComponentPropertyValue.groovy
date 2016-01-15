@@ -7,7 +7,13 @@ class GasComponentPropertyValue {
     static belongsTo = [gasComponentProperty: GasComponentProperty, gasComponent: GasComponent]
     
     static constraints = {
+        gasComponentProperty()
+        gasComponent()
         value()
+    }
+    
+    static mapping = {
+        
     }
     
     String toString() {

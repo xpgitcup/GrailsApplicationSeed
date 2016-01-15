@@ -8,5 +8,5 @@
     <g:if test="${status}">
         更新、新增
     </g:if>
-    ${result.result} -${result.message} - 组分. 
+    ${result.result} -${result.message} - ${result.gas}. 
 </h1>
