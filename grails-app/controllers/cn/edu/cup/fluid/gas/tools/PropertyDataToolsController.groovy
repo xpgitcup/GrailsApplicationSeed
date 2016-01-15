@@ -19,9 +19,9 @@ class PropertyDataToolsController {
     }
     
     /*
-     * 准备模板供用户下载___全部属性的
+     * 创建数据模板
      * */
-    def prepareImportTemplate() {
+    def createPropertyDataTemplate(filename) {
         def heads = []
         def row = ['组分']
         def ps = GasComponentProperty.list()
@@ -29,8 +29,26 @@ class PropertyDataToolsController {
             row.add(e.alias)
         }
         heads.add(row)
-        def tn = "temp/propertyTemplate.xls"
+        def tn = filename;//"temp/propertyTemplate.xls"
         excelService.exportExcelFile(tn, heads)
+    }
+    
+    /*
+     * 检查模板文件的存在与否
+     * */
+    def checkTemplate(tn) {
+        def f = new File(tn)
+        if (!f.exists()) {
+            createPropertyDataTemplate(tn)
+        }
+    }
+    
+    /*
+     * 准备模板供用户下载___全部属性的
+     * */
+    def prepareImportTemplate() {
+        def tn = "temp/propertyTemplate.xls"
+        checkTemplate(tn)
         model:[template: tn]
     }
     
@@ -128,9 +146,12 @@ class PropertyDataToolsController {
         println "${params.action}"
         def procedure = SystemProcedure.findByControllerNameAndActionName(params.controller, params.action)
         
+        def tn = "temp/propertyTemplate.xls"
+        checkTemplate(tn)
+        
         chain(controller: "file", 
             action: "uploadExcelFile", 
-            model:[procedure: procedure]
+            model:[procedure: procedure, template: tn]
         )
     }
 

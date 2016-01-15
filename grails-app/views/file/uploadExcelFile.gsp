@@ -30,6 +30,12 @@
                     </span>
                     <g:submitButton name="upload" value="导入"/>
                 </g:uploadForm>
+                <g:if test="${template}">
+                    <hr>
+                    <h1>如有疑问，可先下载模板文件：</h1>
+                    <h1><a href="propertyDataTools/download?filename=${template}">下载Excel文件的模板</a></h1>
+                    <hr>
+                </g:if>
             </div>
         </div>
     </body>
