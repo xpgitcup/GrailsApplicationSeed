@@ -86,7 +86,7 @@ class PropertyDataToolsController {
         
         def data = excelService.importExcelFile(params)
         
-        def heads = []
+        def heads = [:]
         def h = data[0]
         h.eachWithIndex() {e, i->
             if (i>0) {

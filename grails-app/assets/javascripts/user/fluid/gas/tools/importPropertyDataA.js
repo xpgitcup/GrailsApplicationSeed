@@ -3,9 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+var row;
+var propertyIds;
+
+$(function() {
+    row = $("#names tr");
+    propertyIds = $("#propertyId tr");
+    
+});
 
 function doImportB() {
-    var row = $("#names tr");
     row.each(function (index, item) {
         if (index > 0) {
             console.info(item);
@@ -18,19 +25,31 @@ function doImportB() {
 }
 
 function doImportA() {
-    var row = $("#names tr");
+    console.info("row = " + row);
+    console.info("property = " + propertyIds);
     row.each(function (index, item) {
         if (index === 1) {
             console.info(item);
-            var dd = processArray(item);
+            var dd = processArray(propertyIds, item);
             processRow(dd);
             item.remove();
         }
     });
 }
 
-function processArray(rowdata) {
-    console.info("-------" + rowdata);
+function processArray(propertyIds, rowdata) {
+    console.info("属性行:" + propertyIds);
+    var ps = propertyIds.cells;
+    console.info("属性:" + ps);
+    var m = ps.length;
+    var pps = new Array();
+    var j;
+    for (j = 0; j < m; j++) {
+        pps[i] = ps[i].innerText;
+    }
+    console.info("属性--:" + pps);
+    //--------------------------------------------------------------------------
+    console.info("行:" + rowdata);
     var data = rowdata.cells;
     console.info("cells:" + data);
     var n = data.length;

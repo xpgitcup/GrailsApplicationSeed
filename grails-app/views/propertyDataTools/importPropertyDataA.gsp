@@ -37,7 +37,7 @@
     </div>
     <hr>
     <g:if test="${dataHeads}">
-        <table>
+        <table id="propertyId">
             <tbody>
                 <tr class="even">
                     <td>组分</td>
@@ -45,7 +45,7 @@
                         <td>${item.key}-${item.value}</td>
                     </g:each>
                 </tr>
-                <tr class="odd" id="propertyId">
+                <tr class="odd">
                     <td>组分</td>
                     <g:each in="${dataHeads}" status="i" var="item">
                         <td>${item.value.id}</td>
