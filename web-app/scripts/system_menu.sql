@@ -50,5 +50,5 @@ INSERT INTO `system_menu` VALUES ('43', '0', 'propertyDataTools/prepareImportPro
 INSERT INTO `system_menu` VALUES ('44', '0', 'propertyDataTools/prepareImportTemplate', '下载数据模板', '给用户提供一个数据模板', '0', '0', '40');
 
 INSERT INTO `system_menu` VALUES ('50', '1', '#', '气体信息', '维护气体信息', '1', '0', null);
-INSERT INTO `system_menu` VALUES ('51', '0', 'fluidTool/index', '气体种类', '维护气体信息', '0', '0', '50');
-INSERT INTO `system_menu` VALUES ('52', '0', 'fluidTool/prepareImportGas', '导入气体', '维护气体信息', '0', '0', '50');
+INSERT INTO `system_menu` VALUES ('51', '0', 'fluidTools/index', '气体种类', '维护气体信息', '0', '0', '50');
+INSERT INTO `system_menu` VALUES ('52', '0', 'fluidTools/prepareImportGasFactors', '导入气体', '维护气体信息', '0', '0', '50');
