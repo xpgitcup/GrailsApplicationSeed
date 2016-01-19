@@ -45,5 +45,5 @@ INSERT INTO `system_procedure` VALUES ('3', '1', 'prepareImportPropertyNames', '
 INSERT INTO `system_procedure` VALUES ('4', '0', 'importPropertyNames', 'propertyTools', '2.1导入参数名称', null, '3', null, null);
 INSERT INTO `system_procedure` VALUES ('5', '2', 'prepareImportPropertyDataA', 'propertyDataTools', '3.物性数值-简单属性', '6', null, 'propertyDataA', null);
 INSERT INTO `system_procedure` VALUES ('6', '0', 'importPropertyDataA', 'propertyDataTools', '3.1导入物性数值-简单物性', null, '5', null, null);
-INSERT INTO `system_procedure` VALUES ('7', '1', 'prepareImportGasFactors', 'fluidTools', '4.气体导入', '8', null, 'gasFactors', null);
-INSERT INTO `system_procedure` VALUES ('8', '1', 'importGasFactors', 'fluidTools', '4.1导入气体组分', null, '7', null, null);
+INSERT INTO `system_procedure` VALUES ('7', '1', 'prepareImportComponentFactors', 'fluidTools', '4.气体导入', '8', null, 'componentFactors', null);
+INSERT INTO `system_procedure` VALUES ('8', '1', 'importComponentFactors', 'fluidTools', '4.1导入气体组分', null, '7', null, null);
