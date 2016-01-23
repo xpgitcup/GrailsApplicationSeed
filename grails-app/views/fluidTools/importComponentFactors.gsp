@@ -4,7 +4,7 @@
         <meta name="layout" content="main">
         <g:set var="entityName" value="${message(code: 'testDataA.label', default: 'TestDataA')}" />
         <title><g:message code="default.list.label" args="[entityName]" /></title>
-    <asset:javascript src="user/fluid/tools/importGasFactors.js"/> 
+    <asset:javascript src="user/fluid/tools/importComponentFactors.js"/> 
 </head>
 <body>
     <a href="#list-testDataA" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>

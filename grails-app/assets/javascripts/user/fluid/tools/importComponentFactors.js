@@ -23,7 +23,13 @@ function doImportA() {
         if (index === 1) {
             console.info(item);
             var dd = processArray(item);
-            processRow(dd);
+            var n = dd.length;
+            if (n === 1) {
+                //气体名称
+                processRow4GasName(dd);
+            } else {
+                processRow(dd);
+            }
             item.remove();
         }
     });
@@ -43,7 +49,7 @@ function processArray(rowdata) {
     return dd;
 }
 
-function processRow(dd) {
+function processRow4GasName(dd) {
     $.ajax({
         type: 'POST',
         url: 'fluidTools/createGasFactorAndSave',
@@ -59,3 +65,18 @@ function processRow(dd) {
     });
 }
 
+function processRow(dd) {
+    $.ajax({
+        type: 'POST',
+        url: 'fluidTools/createGasFactorAndSave',
+        data: {names: dd},
+        success: function (data, textStatus) {
+            $("#realTimeDiv").html(data);
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            console.log('创建属性出错了' + xhr);
+            console.log('创建属性出错了' + textStatus);
+            console.log('创建属性出错了' + errorThrown);
+        }
+    });
+}
