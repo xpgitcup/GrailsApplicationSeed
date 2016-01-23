@@ -19,4 +19,8 @@ class FluidGas {
     String toString() {
         return "${name}(组分数：${componentFactor?.size})"
     }
+    
+    String componentFactors() {
+        return "${componentFactor}"
+    }
 }

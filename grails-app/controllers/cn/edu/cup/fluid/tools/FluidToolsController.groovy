@@ -80,7 +80,7 @@ class FluidToolsController {
         }
         
         //------------------------------------------------------------------
-        redirect(controller: "fluidGas", action: "index")
+        redirect(controller: "fluidTools", action: "index")
     }
     
     
@@ -100,6 +100,15 @@ class FluidToolsController {
             model:[procedure: procedure, template: tn]
         )
     }
+    
+    
+    def show(FluidGas fluidGasInstance) {
+        respond fluidGasInstance
+    }
 
-    def index() { }
+    def index(Integer max) {
+        params.max = Math.min(max ?: 10, 100)
+        respond FluidGas.list(params), model:[fluidGasInstanceCount: FluidGas.count()]
+    }
+    
 }

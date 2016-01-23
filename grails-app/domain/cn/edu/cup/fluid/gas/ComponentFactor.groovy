@@ -18,6 +18,6 @@ class ComponentFactor {
     }
     
     String toString() {
-        return "[\"${gasComponent}\",${value}]"
+        return "[\'${gasComponent}\',${value}]"
     }
 }

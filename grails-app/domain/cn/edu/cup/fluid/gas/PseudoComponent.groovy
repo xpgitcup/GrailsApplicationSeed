@@ -19,6 +19,6 @@ class PseudoComponent {
     }
     
     String toString() {
-        return "${name}(${factor*100}%)"
+        return "[\'${name}\',${factor}]"
     }
 }
