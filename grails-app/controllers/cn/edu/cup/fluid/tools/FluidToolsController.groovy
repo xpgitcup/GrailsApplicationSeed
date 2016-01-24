@@ -12,6 +12,8 @@ class FluidToolsController {
     def commonService
     def excelService
     
+    def testa() {}
+    
     def testPie() {
         
     }

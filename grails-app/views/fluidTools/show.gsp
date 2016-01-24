@@ -1,4 +1,3 @@
-
 <%@ page import="cn.edu.cup.fluid.gas.FluidGas" %>
 <!DOCTYPE html>
 <html>
@@ -6,7 +5,8 @@
         <meta name="layout" content="main">
         <g:set var="entityName" value="${message(code: 'fluidGas.label', default: 'FluidGas')}" />
         <title><g:message code="default.show.label" args="[entityName]" /></title>
-    <asset:javascript src="uesr/fluid/tools/drawComponentFactors.js" /> 
+    <asset:javascript src="user/fluid/tools/drawComponentFactors.js" /> 
+
 </head>
 <body>
     <a href="#show-fluidGas" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -31,10 +31,10 @@
             <div class="message" role="status">${flash.message}</div>
         </g:if>
         <!---->
+        <div id="data" class="hidden">${fluidGasInstance.componentFactors()}</div>
         <table>
             <tr>
-                <td>
-                    <div id="data" class="hidden">${fluidGasInstance.componentFactors()}</div>
+                <td style="width: 50%">
                     <div id="componentFactorPie"></div>
                 </td>
                 <td>
