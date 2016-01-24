@@ -11,6 +11,10 @@ class FluidToolsController {
     
     def commonService
     def excelService
+    
+    def testPie() {
+        
+    }
 
     /*
      * 将上传的文件先试一下，然后分两个步骤：导入一行、
