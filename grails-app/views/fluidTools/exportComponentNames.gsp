@@ -12,6 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="layout" content="main">
         <title>组分列表文件导出</title>
+        <asset:javascript src='user/fluid/tools/componentSelect.js'/>
     </head>
     <body>
         <div id="show-fluidGas" class="content scaffold-show" role="main">
@@ -36,7 +37,9 @@
                     <input class="save" type="submit" value="提交" />
                 </fieldset>
             </g:form>
-            <div class="easyui-pagination" data-options="total:114"></div>
+            <div class="easyui-panel">
+                <div class="easyui-pagination" data-options='total:${count}'></div>
+            </div>
         </div>
         <g:if test="${targetFileName}">
             <hr>

@@ -63,7 +63,7 @@ class FluidToolsController {
                 }
             }
         }
-        model:[targetFileName: targetFileName, components: components]
+        model:[targetFileName: targetFileName, components: components, count: GasComponent.count]
     }
     
     /*
