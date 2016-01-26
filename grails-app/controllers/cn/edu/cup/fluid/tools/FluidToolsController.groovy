@@ -11,6 +11,29 @@ class FluidToolsController {
     
     def commonService
     def excelService
+    
+    /*
+     * 下载
+     * */
+    def download(params) {
+        commonService.download(params)
+    }
+    
+    /*
+     * 创建数据模板
+     * */
+    def createGasTemplate(filename, components) {
+        def heads = []
+        def row = ['在此输入气体名称']
+        heads.add(row)
+        components.each {e->
+            def r = []
+            r.add(e)
+            heads.add(r)
+        }
+        def tn = filename;//"temp/propertyTemplate.xls"
+        excelService.exportExcelFile(tn, heads)
+    }
 
     /*
      * 
@@ -24,11 +47,23 @@ class FluidToolsController {
     /*
      * 分页显示组分信息，选择，然后导出到Excel文件
      * */
-    def exportComponentNames(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        def gasComponentInstanceList = GasComponent.list(params)
-        //println "${gasComponentInstanceList}"
-        model:[gasComponentInstanceList: gasComponentInstanceList, GasComponentInstanceCount: GasComponent.count()]
+    def exportComponentNames() {
+        def targetFileName = "temp/GasTemplate.xls"
+        def targetFile = new File(targetFileName)
+        def components = []
+        if (!targetFile.exists()) {
+            createGasTemplate(targetFileName, components)
+        } else {
+            //如果文件存在，将文件中的信息保存到列表中
+            params.filename = targetFileName
+            def data = excelService.importExcelFile(params)
+            data.eachWithIndex(){e,i->
+                if (i>0) {
+                    components.add(e)
+                }
+            }
+        }
+        model:[targetFileName: targetFileName, components: components]
     }
     
     /*

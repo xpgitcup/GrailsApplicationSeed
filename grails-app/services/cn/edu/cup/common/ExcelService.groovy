@@ -11,6 +11,9 @@ import jxl.write.WritableWorkbook
 @Transactional
 class ExcelService {
     
+    /*
+     * 输入参数是params.filename=需要导入的excel文件名
+     * */
     def importExcelFile(params) {
         def filename
         def data = []

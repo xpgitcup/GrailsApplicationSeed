@@ -16,6 +16,7 @@
     <body>
         <div id="show-fluidGas" class="content scaffold-show" role="main">
             <h1>气体组分</h1>
+            <div id="componets">${components}</div>
             <g:if test="${flash.message}">
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
@@ -35,10 +36,14 @@
                     <input class="save" type="submit" value="提交" />
                 </fieldset>
             </g:form>
-            <div class="paginationGrails">
-                <g:paginate total="${GasComponentInstanceCount ?: 0}" />
-            </div>
+            <div class="easyui-pagination" data-options="total:114"></div>
         </div>
+        <g:if test="${targetFileName}">
+            <hr>
+            <h1>下表就是Excel文件模板，请下载后填写：</h1>
+            <h1><a href="fluidTools/download?filename=${targetFileName}">下载Excel文件的模板</a></h1>
+            <hr>
+        </g:if>
 
     </body>
 </html>
