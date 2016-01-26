@@ -13,6 +13,25 @@ class FluidToolsController {
     def excelService
 
     /*
+     * 
+     * */
+    def showExportExcelFile() {
+        println "${params}"
+        def ofile = "0000"
+        model:[ofile: ofile]
+    }
+    
+    /*
+     * 分页显示组分信息，选择，然后导出到Excel文件
+     * */
+    def exportComponentNames(Integer max) {
+        params.max = Math.min(max ?: 10, 100)
+        def gasComponentInstanceList = GasComponent.list(params)
+        //println "${gasComponentInstanceList}"
+        model:[gasComponentInstanceList: gasComponentInstanceList, GasComponentInstanceCount: GasComponent.count()]
+    }
+    
+    /*
      * 将上传的文件先试一下，然后分两个步骤：导入一行、
      * */
     @Transactional
